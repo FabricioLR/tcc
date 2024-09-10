@@ -81,6 +81,42 @@
         #user-functions.active{
             left: calc(100% - 150px);
         }
+        main{
+            display: flex;
+            justify-content: center;
+        }
+        #videos{
+            display: grid;
+            width: 95%;
+            margin-top: 20px;
+            grid-gap: 10px;
+            grid-template-columns: repeat(5, 250px);
+        }
+
+        .video{
+            width: 250px;
+            border: 1px solid black;
+        }
+        .video video{
+            width: 100%;
+            height: 120px;
+            background-color: black;
+        }
+        .title{
+            margin: 0px 5px 0px 5px;
+        }
+        .user{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin: 5px;
+        }
+        .user img{
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
@@ -101,11 +137,11 @@
             ?>
         </div>
     </header>
-    <body>
+    <main>
         <div id="videos">
 
         </div>
-    </body>
+    </main>
     <body>
         
     </body>
@@ -122,10 +158,13 @@
                     const div = document.createElement("div")
                     const video1 = document.createElement("video")
                     const p1 = document.createElement("p")
+                    const div1 = document.createElement("div")
                     const img = document.createElement("img")
                     const p2 = document.createElement("p")
 
                     div.className = "video"
+                    p1.className = "title"
+                    div1.className = "user"
 
                     video1.src = "uploads/videos/" + video.url
                     p1.innerText = video.title
@@ -134,8 +173,9 @@
 
                     div.appendChild(video1)
                     div.appendChild(p1)
-                    div.appendChild(img)
-                    div.appendChild(p2)
+                    div1.appendChild(img)
+                    div1.appendChild(p2)
+                    div.appendChild(div1)
 
                     document.getElementById("videos").appendChild(div)
                 })
